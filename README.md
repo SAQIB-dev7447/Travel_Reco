@@ -115,31 +115,35 @@ Travel_Reco/
 ## Prerequisites
 
 - Python 3.x  
-- API Keys (for AI & Images)  
+- API Keys
+     -Groq API key
+     -Unplash Access key
+     -Unplash Secret key
+     -Secret key  
 
 -----------------------------------------------------------------------
 
 
-### Installation
+### Setup & Installation
 
-1. **Clone the repository**
+1. **Clone the repository**:
    ```bash
    git clone https://github.com/SAQIB-dev7447/Travel_Reco.git
    cd Travel_Reco
-  ```
+   ```
 
- **Set up Virtual Environment**:
+2. **Set up Virtual Environment**:
    ```bash
    python -m venv venv
    .\venv\Scripts\activate
    pip install -r requirements.txt
    ```
 
-3.**Configure Environment Variables**
-Create a .env file:
+3.**Configure Environment Variables**:
+Create a `.env` file in the root dirctory:
 ```env
-GROQ_API_KEY=your_key<br>
-GEMINI_API_KEY=your_key (optional)<br>
+GROQ_API_KEY=your_key
+GEMINI_API_KEY=your_key (optional)
 UNSPLASH_API_KEY=your_key
 ```
 
@@ -148,4 +152,4 @@ UNSPLASH_API_KEY=your_key
 python app.py
 ```
 Open: http://127.0.0.1:5000
-
+---
