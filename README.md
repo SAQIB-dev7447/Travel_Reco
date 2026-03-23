@@ -72,7 +72,6 @@ Travel_Reco transforms user input into actionable travel plans through intellige
 
 ------------------------------------------------------------------------
 
-Tech Stack
 
 ## 🛠️ Technology Stack
 
@@ -87,6 +86,32 @@ Tech Stack
 
 ------------------------------------------------------------------------
 
+## 📂 Project Structure
+
+```text
+Travel_Reco/
+├── app.py              # Main Flask application
+├── models.py           # Database models
+├── database.db         # SQLite database
+│
+├── templates/          # HTML pages
+│   ├── login.html
+│   ├── signup.html
+│   ├── dashboard.html
+│   ├── recommendations.html
+│   ├── place.html
+│
+├── static/             # CSS, JS, Images
+│
+├── utils/              # AI & API logic
+│   ├── ai.py
+│   ├── image_api.py
+│
+└── README.md
+```
+-----------------------------------------------------------------------
+
+
 ## Prerequisites
 
 - Python 3.x  
@@ -94,9 +119,6 @@ Tech Stack
 
 -----------------------------------------------------------------------
 
-Setup
-
----
 
 ### Installation
 
