@@ -106,12 +106,12 @@ Setup
    cd Travel_Reco
   ```
 
-2.**Setup Virtual Environment**
-```bash
-python -m venv venv
-.\venv\Scripts\activate
-pip install -r requirements.txt
-```
+ **Set up Virtual Environment**:
+   ```bash
+   python -m venv venv
+   .\venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
 3.**Configure Environment Variables**
 Create a .env file:
@@ -124,7 +124,6 @@ UNSPLASH_API_KEY=your_key
 4.**Run the Application**
 ```bash
 python app.py
-
-Open: http://127.0.0.1:5000
 ```
+Open: http://127.0.0.1:5000
 
