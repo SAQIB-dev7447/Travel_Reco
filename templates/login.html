@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel AI - Login</title>
+<!-- BEGIN: External Resources -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- END: External Resources -->
+<!-- BEGIN: Custom Styling -->
+<style data-purpose="typography">
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+<style data-purpose="layout-and-glassmorphism">
+    .bg-deep-blue {
+      background-color: #0F172A;
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+
+    .gradient-button {
+      background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .gradient-button:hover {
+      opacity: 0.9;
+      transform: translateY(-1px);
+    }
+
+    .input-field {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      transition: border-color 0.2s ease;
+    }
+
+    .input-field:focus {
+      border-color: #7C3AED;
+      ring: 2px;
+      ring-color: #7C3AED;
+      outline: none;
+    }
+  </style>
+<!-- END: Custom Styling -->
+</head>
+<body class="bg-deep-blue min-h-screen overflow-x-hidden">
+<!-- BEGIN: Main Login Page Layout -->
+<main class="flex flex-col lg:flex-row min-h-screen w-full">
+<!-- BEGIN: Left Side - Hero Image -->
+<section class="hidden lg:flex lg:w-1/2 relative overflow-hidden bg-black" data-purpose="hero-section">
+<img alt="A high-quality, professional 3D illustration of a futuristic travel scene with a floating compass and globe, set against a deep blue and purple gradient background" class="absolute inset-0 w-full h-full object-cover opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnIjeLCRWqIw_wCnJ89q96QXNYiOhr7Px2fgbJtw4eR_IyKLjGmNWXP6qRt932PRczwlQ7lbpjEf1WAONGqTM371okNsauU0Zh7wM87C7LTfGalyM7oP7KzFZEkZojoZ78N7bG7VxFfqRrFyA-AZ6rRj-oZtJLWcNTiloDZzYpLocGnaIl2VA6pF94AO9kpnPhJVQlgY0YyHuTWdTijPWgTQPCXKQUtRVeLgQKA8bjZVoLeYcOpLtaFkfRNk85FswLF_3tcc6K82Cn"/>
+<!-- Overlay text for branding/vibe -->
+<div class="relative z-10 flex flex-col justify-end p-12 w-full h-full bg-gradient-to-t from-[#0F172A] via-transparent to-transparent">
+<h1 class="text-white text-4xl font-bold mb-4">Explore the Future of Travel</h1>
+<p class="text-blue-100 text-lg opacity-80 max-w-md">Your personal AI companion for seamless global adventures.</p>
+</div>
+</section>
+<!-- END: Left Side - Hero Image -->
+<!-- BEGIN: Right Side - Login Form -->
+<section class="flex-1 flex items-center justify-center p-6 sm:p-12 lg:p-24" data-purpose="login-form-section">
+<!-- Card Container -->
+<div class="glass-card w-full max-w-md rounded-2xl p-8 sm:p-10 flex flex-col" data-purpose="login-card">
+<!-- Header -->
+<header class="mb-10 text-center lg:text-left">
+<div class="mb-6 flex justify-center lg:justify-start">
+<!-- Simple Placeholder Logo -->
+<div class="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
+<svg class="h-6 w-6 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+<h2 class="text-white text-3xl font-semibold tracking-tight">Welcome Back</h2>
+<p class="text-slate-400 mt-2">Log in to your Travel AI account</p>
+</header>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div class="mb-4 p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-red-200 text-sm">
+            {% for message in messages %}
+              {{ message }}
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      <!-- Form -->
+      <form action="{{ url_for('login') }}" class="space-y-6" method="POST">
+<!-- Email Input Group -->
+<div class="space-y-2">
+<label class="block text-sm font-medium text-slate-300" for="email">Email Address</label>
+<input class="input-field w-full px-4 py-3 rounded-[12px] placeholder-slate-500" id="email" name="email" placeholder="name@example.com" required="" type="email"/>
+</div>
+<!-- Password Input Group -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="block text-sm font-medium text-slate-300" for="password">Password</label>
+<a class="text-xs text-indigo-400 hover:text-indigo-300 transition-colors" href="#">Forgot password?</a>
+</div>
+<input class="input-field w-full px-4 py-3 rounded-[12px] placeholder-slate-500" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+<!-- Remember Me -->
+<div class="flex items-center">
+<input class="h-4 w-4 rounded border-slate-700 bg-slate-800 text-indigo-600 focus:ring-indigo-500" id="remember-me" name="remember-me" type="checkbox"/>
+<label class="ml-2 block text-sm text-slate-400" for="remember-me">Remember me</label>
+</div>
+<!-- Login Button -->
+<button class="gradient-button w-full py-3.5 rounded-[12px] text-white font-semibold text-lg shadow-xl shadow-indigo-600/20" type="submit">
+            Login
+          </button>
+</form>
+<!-- Footer / Create Account -->
+<footer class="mt-8 text-center">
+<p class="text-slate-400 text-sm">
+            Don't have an account? 
+            <a href="{{ url_for('signup') }}" class="text-indigo-400 font-semibold hover:text-indigo-300 ml-1 transition-colors focus:outline-none">
+              Create Account
+            </a>
+</p>
+</footer>
+</div>
+</section>
+<!-- END: Right Side - Login Form -->
+</main>
+<!-- END: Main Login Page Layout -->
+</body></html>

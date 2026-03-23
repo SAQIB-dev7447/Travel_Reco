@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel AI Dashboard</title>
+<!-- Inter Font -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'deep-blue': '#0F172A',
+            'sidebar-blue': '#1E293B',
+            'accent-teal': '#2DD4BF',
+            'brand-purple': '#8B5CF6',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            'xl-custom': '20px',
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-glassmorphism">
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .active-nav-gradient {
+      background: linear-gradient(90deg, rgba(139, 92, 246, 0.2) 0%, rgba(139, 92, 246, 0) 100%);
+      border-left: 4px solid #8B5CF6;
+    }
+    body {
+      background-color: #0F172A;
+      color: #F8FAFC;
+    }
+  </style>
+</head>
+<body class="font-sans antialiased overflow-hidden">
+<!-- BEGIN: Layout Wrapper -->
+<div class="flex h-screen overflow-hidden">
+<!-- BEGIN: Sidebar -->
+<aside class="w-64 bg-sidebar-blue flex-shrink-0 flex flex-col border-r border-slate-800" data-purpose="sidebar-navigation">
+<div class="p-6 flex items-center gap-3">
+<div class="w-8 h-8 bg-brand-purple rounded-lg flex items-center justify-center">
+<svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</div>
+<span class="text-xl font-bold tracking-tight">Travel AI</span>
+</div>
+<nav class="flex-1 mt-4 px-2 space-y-1">
+<!-- Dashboard (Active) -->
+<a class="active-nav-gradient flex items-center px-4 py-3 text-sm font-medium text-white transition-colors" href="#">
+<svg class="w-5 h-5 mr-3 text-brand-purple" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Dashboard
+        </a>
+<!-- Plan Trip -->
+<a class="flex items-center px-4 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-all" href="{{ url_for('plan') }}">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Plan Trip
+        </a>
+<!-- Saved Trips -->
+<a class="flex items-center px-4 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-all" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Saved Trips
+        </a>
+<!-- Profile -->
+<a class="flex items-center px-4 py-3 text-sm font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg transition-all" href="#">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Profile
+        </a>
+</nav>
+<div class="p-4 border-t border-slate-800">
+<a href="{{ url_for('logout') }}" class="flex items-center w-full px-4 py-2 text-sm text-slate-400 hover:text-white">
+<svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Sign Out
+        </a>
+</div>
+</aside>
+<!-- END: Sidebar -->
+<!-- BEGIN: Main Area -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-deep-blue">
+<!-- BEGIN: Navbar -->
+<header class="h-16 flex items-center justify-between px-8 bg-deep-blue/50 sticky top-0 backdrop-blur-md z-10 border-b border-slate-800" data-purpose="top-navigation">
+<div class="flex-1 max-w-lg">
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<svg class="h-5 w-5 text-slate-500" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</span>
+<input class="block w-full pl-10 pr-3 py-2 border-none rounded-xl bg-slate-800/50 text-slate-300 placeholder-slate-500 focus:ring-2 focus:ring-accent-teal focus:bg-slate-800 sm:text-sm" placeholder="Search destinations, trips, or guides..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6 ml-4">
+<!-- Theme Toggle -->
+<button class="p-2 text-slate-400 hover:text-accent-teal transition-colors" data-purpose="theme-toggle">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+</button>
+<!-- Notifications -->
+<button class="p-2 text-slate-400 hover:text-accent-teal transition-colors relative">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span class="absolute top-2 right-2.5 block h-2 w-2 rounded-full bg-accent-teal ring-2 ring-deep-blue"></span>
+</button>
+<!-- User Profile -->
+<div class="flex items-center gap-3 pl-4 border-l border-slate-800">
+<div class="text-right hidden sm:block">
+<p class="text-sm font-medium text-white">{{ user.full_name }}</p>
+<p class="text-xs text-slate-400">Pro Explorer</p>
+</div>
+<img alt="User Profile" class="w-10 h-10 rounded-full border-2 border-brand-purple/50 object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpy5HJ7cQmbU9YGQNbzEjuS3vLN-z2OlUZ6IULVyXXESZCjWpQj2Q3KG8p2Rc-k_vJbaCVHQ8_bXUbgjY20yPmWeUr1RdsMhuRYIktGiG8awNPaxzzaAtNntXi8xhfiYODCRnomJPZ6NAq5qsyqGwBUOmKKE7ynJYYsEJ0sZQi9Ukz-1cu7yJRzMKdtTnM0jJj4QJXoOh2rrkia5lVjWqaVjbf6yeHHKCizl_aCLzsp7O1d7izl-NIx9hL3G2JTCr3pfsk7kV1cZ78"/>
+</div>
+</div>
+</header>
+<!-- END: Navbar -->
+<!-- BEGIN: Content Area -->
+<section class="p-8 space-y-8" data-purpose="main-content">
+<!-- Welcome Hero Section -->
+<header class="space-y-2">
+<h1 class="text-3xl font-bold tracking-tight text-white">Welcome back, {{ user.full_name.split(' ')[0] }}</h1>
+<p class="text-slate-400">Your next adventure is just a click away.</p>
+</header>
+<!-- Glassmorphism Card -->
+<div class="glass-card rounded-xl-custom p-8 relative overflow-hidden group" data-purpose="featured-summary-card">
+  {% if trips %}
+  {% set latest_trip = trips[0] %}
+  <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+    <div class="space-y-4">
+      <div class="inline-flex items-center px-3 py-1 rounded-full bg-accent-teal/20 text-accent-teal text-xs font-semibold uppercase tracking-wider">
+        {% if latest_trip.selected_place %}Recent Plan{% else %}Current Planning{% endif %}
+      </div>
+      <h2 class="text-4xl font-extrabold text-white">
+        {% if latest_trip.selected_place %}{{ latest_trip.selected_place }}{% else %}{{ latest_trip.selected_state or 'New Trip' }}{% endif %}
+      </h2>
+      <div class="flex items-center gap-4 text-slate-300">
+        <span class="flex items-center gap-1">
+          <svg class="w-5 h-5 text-accent-teal" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.407 2.67 1M12 17V7m0 10c-1.11 0-2.08-.407-2.67-1" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          Budget: {{ latest_trip.budget }}
+        </span>
+        <span class="flex items-center gap-1">
+          <svg class="w-5 h-5 text-accent-teal" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+          {{ latest_trip.travel_type }}
+        </span>
+      </div>
+    </div>
+    <div class="flex gap-4">
+      {% if latest_trip.selected_place %}
+      <a href="{{ url_for('place_details_view', place_name=latest_trip.selected_place) }}" class="px-6 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-xl shadow-lg shadow-brand-purple/25 transition-all transform hover:-translate-y-1">
+        View Details
+      </a>
+      {% else %}
+      <a href="{{ url_for('recommend') }}" class="px-6 py-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold rounded-xl shadow-lg shadow-brand-purple/25 transition-all transform hover:-translate-y-1">
+        Continue Planning
+      </a>
+      {% endif %}
+    </div>
+  </div>
+  {% else %}
+  <div class="relative z-10 flex flex-col items-center justify-center py-12">
+    <h2 class="text-2xl font-bold text-white mb-4">No trips planned yet</h2>
+    <a href="{{ url_for('plan') }}" class="px-8 py-3 bg-accent-teal hover:bg-teal-500 text-deep-blue font-bold rounded-xl transition-all">
+      Start Planning Your First Trip
+    </a>
+  </div>
+  {% endif %}
+</div>
+<!-- Grid Layout for Stats/Activity -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Recent Activity -->
+<div class="lg:col-span-2 space-y-6">
+<h3 class="text-xl font-bold text-white">Recent Activity</h3>
+<div class="space-y-4">
+  {% for trip in trips[:5] %}
+  <div class="flex items-center p-4 bg-sidebar-blue/50 rounded-xl-custom border border-slate-800">
+    <div class="w-12 h-12 bg-slate-700 rounded-lg flex items-center justify-center mr-4">
+      <svg class="w-6 h-6 text-accent-teal" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+    </div>
+    <div class="flex-1">
+      <p class="font-semibold text-white">
+        {% if trip.selected_place %}Explored {{ trip.selected_place }}{% else %}Planning trip to {{ trip.selected_state or 'New Destination' }}{% endif %}
+      </p>
+      <p class="text-sm text-slate-400">{{ trip.travel_type }} • {{ trip.duration }} days</p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+<!-- Quick Stats -->
+<div class="space-y-6">
+<h3 class="text-xl font-bold text-white">Travel Stats</h3>
+<div class="grid grid-cols-1 gap-4">
+<div class="p-6 bg-sidebar-blue/50 rounded-xl-custom border border-slate-800 text-center">
+<p class="text-slate-400 text-sm mb-1 uppercase tracking-widest font-bold">Total Plans</p>
+<p class="text-4xl font-extrabold text-accent-teal">{{ stats.total }}</p>
+</div>
+<div class="p-6 bg-sidebar-blue/50 rounded-xl-custom border border-slate-800 text-center">
+<p class="text-slate-400 text-sm mb-1 uppercase tracking-widest font-bold">Planned States</p>
+<p class="text-4xl font-extrabold text-brand-purple">{{ stats.completed }}</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Content Area -->
+</main>
+<!-- END: Main Area -->
+</div>
+<!-- END: Layout Wrapper -->
+<script data-purpose="toggle-handling">
+    // Simple script for interactivity if needed later
+    console.log('Travel AI Dashboard Initialized');
+  </script>
+</body></html>

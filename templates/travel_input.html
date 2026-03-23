@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Travel AI - Plan Your Adventure</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style data-purpose="custom-animations">
+    @keyframes pulse-subtle {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7); }
+      50% { transform: scale(1.02); box-shadow: 0 0 20px 5px rgba(124, 58, 237, 0.3); }
+    }
+    .animate-pulse-cta {
+      animation: pulse-subtle 2s infinite ease-in-out;
+    }
+    
+    /* Custom Slider Styling */
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 18px;
+      height: 18px;
+      background: #7C3AED;
+      border: 2px solid white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  </style>
+<style data-purpose="glassmorphism">
+    .glass-card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .glass-input {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+    }
+    .glass-input:focus {
+      border-color: #7C3AED;
+      ring-color: #7C3AED;
+    }
+  </style>
+<script data-purpose="tailwind-config">
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              purple: '#7C3AED',
+              blue: '#4F46E5',
+              dark: '#0F172A',
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-brand-dark min-h-screen flex items-center justify-center p-4 font-sans text-white">
+<!-- BEGIN: MainContainer -->
+<main class="w-full max-w-2xl" data-purpose="travel-form-container">
+<!-- BEGIN: FormCard -->
+<section class="glass-card rounded-[20px] p-8 md:p-10 shadow-2xl">
+<!-- Header Section -->
+<header class="mb-10 text-center">
+<h1 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-2">
+          Plan Your Next Adventure
+        </h1>
+<p class="text-slate-400">Tailor your journey with AI-powered insights</p>
+</header>
+        <form action="{{ url_for('plan') }}" class="space-y-8" method="POST">
+          <!-- Budget Slider -->
+          <div data-purpose="budget-selection">
+            <div class="flex justify-between items-center mb-4">
+              <label class="text-sm font-medium uppercase tracking-wider text-slate-400" for="budget-range">Budget Range (₹)</label>
+              <span class="text-brand-purple font-semibold" id="budget-value">₹25,000</span>
+            </div>
+            <input class="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-purple" id="budget-range" name="budget-range" max="500000" min="5000" oninput="document.getElementById('budget-value').innerText = '₹' + Number(this.value).toLocaleString()" step="1000" type="range" value="25000"/>
+            <div class="flex justify-between mt-2 text-xs text-slate-500">
+              <span>₹5,000</span>
+              <span>₹5,00,000</span>
+            </div>
+          </div>
+          <!-- Travelers & Age Group Row -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Travelers Counter -->
+            <div data-purpose="traveler-counter">
+              <label class="block text-sm font-medium uppercase tracking-wider text-slate-400 mb-3">Travelers</label>
+              <div class="flex items-center glass-input rounded-xl p-1 w-full justify-between">
+                <button class="w-10 h-10 flex items-center justify-center hover:text-brand-purple transition-colors" onclick="const i = document.getElementById('traveler-count'); i.value = Math.max(1, parseInt(i.value)-1)" type="button">-</button>
+                <input class="bg-transparent border-none text-center focus:ring-0 w-12 text-lg font-semibold" id="traveler-count" name="traveler-count" min="1" type="number" value="2"/>
+                <button class="w-10 h-10 flex items-center justify-center hover:text-brand-purple transition-colors" onclick="const i = document.getElementById('traveler-count'); i.value = parseInt(i.value)+1" type="button">+</button>
+              </div>
+            </div>
+            <!-- Age Group Dropdown -->
+            <div data-purpose="age-selection">
+              <label class="block text-sm font-medium uppercase tracking-wider text-slate-400 mb-3" for="age-group">Age Group</label>
+              <select class="glass-input w-full rounded-xl py-2.5 px-4 focus:ring-2 focus:ring-brand-purple appearance-none" id="age-group" name="age-group">
+                <option class="bg-brand-dark" value="young-adult">Young Adult (18-25)</option>
+                <option class="bg-brand-dark" selected="" value="adult">Adult (26-45)</option>
+                <option class="bg-brand-dark" value="senior">Senior (46+)</option>
+                <option class="bg-brand-dark" value="family">Family with Kids</option>
+              </select>
+            </div>
+          </div>
+          <!-- Travel Type Grid -->
+          <div data-purpose="category-grid">
+            <label class="block text-sm font-medium uppercase tracking-wider text-slate-400 mb-4">Travel Category</label>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              <!-- Category: Nature -->
+              <label class="cursor-pointer group">
+                <input class="hidden peer" name="travel-type" type="radio" value="nature"/>
+                <div class="glass-card rounded-xl text-center border-2 border-transparent peer-checked:border-brand-purple peer-checked:bg-white/10 transition-all duration-300 overflow-hidden">
+                  <div class="h-24 w-full overflow-hidden">
+                    <img alt="Nature" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&q=80"/>
+                  </div>
+                  <span class="text-xs font-semibold block py-2">🌿 Nature</span>
+                </div>
+              </label>
+              <!-- Category: Adventure -->
+              <label class="cursor-pointer group">
+                <input checked="" class="hidden peer" name="travel-type" type="radio" value="adventure"/>
+                <div class="glass-card rounded-xl text-center border-2 border-transparent peer-checked:border-brand-purple peer-checked:bg-white/10 transition-all duration-300 overflow-hidden">
+                  <div class="h-24 w-full overflow-hidden">
+                    <img alt="Adventure" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=300&q=80"/>
+                  </div>
+                  <span class="text-xs font-semibold block py-2">🧗 Adventure</span>
+                </div>
+              </label>
+              <!-- Category: Historical -->
+              <label class="cursor-pointer group">
+                <input class="hidden peer" name="travel-type" type="radio" value="historical"/>
+                <div class="glass-card rounded-xl text-center border-2 border-transparent peer-checked:border-brand-purple peer-checked:bg-white/10 transition-all duration-300 overflow-hidden">
+                  <div class="h-24 w-full overflow-hidden">
+                    <img alt="Historical" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=300&q=80"/>
+                  </div>
+                  <span class="text-xs font-semibold block py-2">🏛️ Historical</span>
+                </div>
+              </label>
+              <!-- Category: Spiritual -->
+              <label class="cursor-pointer group">
+                <input class="hidden peer" name="travel-type" type="radio" value="spiritual"/>
+                <div class="glass-card rounded-xl text-center border-2 border-transparent peer-checked:border-brand-purple peer-checked:bg-white/10 transition-all duration-300 overflow-hidden">
+                  <div class="h-24 w-full overflow-hidden">
+                    <img alt="Spiritual" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=300&q=80"/>
+                  </div>
+                  <span class="text-xs font-semibold block py-2">🕌 Spiritual</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          <!-- Duration Input -->
+          <div data-purpose="duration-selection">
+            <label class="block text-sm font-medium uppercase tracking-wider text-slate-400 mb-3" for="duration">Duration (Days)</label>
+            <div class="relative flex items-center glass-input rounded-xl overflow-hidden">
+              <button type="button" onclick="const i=document.getElementById('duration');i.value=Math.max(1,parseInt(i.value||1)-1)" class="w-12 h-12 flex items-center justify-center text-xl font-bold text-slate-300 hover:text-brand-purple transition-colors flex-shrink-0">−</button>
+              <input
+                type="number"
+                id="duration"
+                name="duration"
+                min="1"
+                max="30"
+                value="7"
+                class="flex-1 bg-transparent border-none text-center text-lg font-semibold text-white focus:ring-0 focus:outline-none [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+              />
+              <button type="button" onclick="const i=document.getElementById('duration');i.value=Math.min(30,parseInt(i.value||1)+1)" class="w-12 h-12 flex items-center justify-center text-xl font-bold text-slate-300 hover:text-brand-purple transition-colors flex-shrink-0">+</button>
+            </div>
+            <p class="text-xs text-slate-500 mt-2">Enter any number of days (1–30). The AI itinerary will match exactly.</p>
+          </div>
+          <!-- CTA Button -->
+          <div class="pt-4">
+            <button class="w-full py-4 px-6 rounded-2xl bg-gradient-to-r from-brand-purple to-brand-blue text-white font-bold text-lg shadow-lg hover:shadow-brand-purple/40 transform transition-all active:scale-95 animate-pulse-cta" id="generate-btn" type="submit">
+              Generate AI Plan
+            </button>
+          </div>
+        </form>
+
+</section>
+<!-- END: FormCard -->
+<!-- Footer Tagline -->
+<footer class="mt-8 text-center text-slate-500 text-sm">
+<p>© 2023 Travel AI Engine. Exploring the future of tourism.</p>
+</footer>
+</main>
+<!-- END: MainContainer -->
+
+</body></html>
