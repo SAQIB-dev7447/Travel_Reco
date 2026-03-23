@@ -100,26 +100,28 @@ Setup
 
 ### Installation
 
-1. **Clone the repository**
+##1. **Clone the repository**
    ```bash
    git clone https://github.com/SAQIB-dev7447/Travel_Reco.git
    cd Travel_Reco
 
-2.**Setup Virtual Environment**
-
+##2.**Setup Virtual Environment**
+```bash
 python -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
 
-3.**Configure Environment Variables**
+##3.**Configure Environment Variables**
 Create a .env file:
 
-GROQ_API_KEY=your_key
-GEMINI_API_KEY=your_key (optional)
+GROQ_API_KEY=your_key<br>
+GEMINI_API_KEY=your_key (optional)<br>
 UNSPLASH_API_KEY=your_key
 
-4.**Run the Application**
-
+##4.**Run the Application**
+```bash
 python app.py
 
 Open: http://127.0.0.1:5000
+
+
