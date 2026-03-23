@@ -1,246 +1,52 @@
-<h1 align="center">🌍 AI Travel Recommendation System</h1>
 
-<p align="center">
-  <b>Plan smarter trips with AI-powered recommendations</b>
-</p>
+# 🌍 Travel_Reco - AI-Powered Travel Planning Assistant
 
-<p align="center">
-  <img src="https://img.shields.io/github/stars/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-</p>
+[![Python](https://img.shields.io/badge/Python-3.x-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-Backend-lightgrey.svg)](https://flask.palletsprojects.com/)
+[![AI](https://img.shields.io/badge/AI-LLM%20Integration-orange.svg)]()
+[![API](https://img.shields.io/badge/API-Unsplash-green.svg)](https://unsplash.com/)
 
----
+**Travel_Reco** is an intelligent travel planning platform that uses AI to recommend destinations, generate itineraries, and provide personalized travel insights based on user preferences like budget, group size, and travel style.
 
-## 📌 Project Overview
-
-This project is an **AI-powered travel recommendation web application** that helps users plan trips based on their **budget, preferences, and group details**.
-
-The system leverages AI to:
-- Recommend suitable **states**
-- Suggest **tourist destinations**
-- Generate **travel insights and itineraries**
+It simplifies trip planning by turning complex decisions into **smart, AI-driven suggestions**.
 
 ---
 
-## 🎯 Core Features
+## ✨ Core Capabilities
 
-### 🔐 User Authentication
-- Signup & Login system  
-- Session-based authentication  
-- Secure password handling  
+Travel_Reco transforms user input into actionable travel plans through intelligent AI workflows:
 
----
-
-### 📝 Travel Input Form
-Users provide:
-- 💰 Budget (₹)  
-- 👥 Number of travelers  
-- 🎂 Age group  
-- 🧭 Travel type:
-  - Nature  
-  - Adventure  
-  - Historical  
-  - Spiritual  
-- 📅 Duration (days)  
+| Feature | Description | Powered By |
+| :--- | :--- | :--- |
+| **📍 State Recommendation** | Suggests best Indian states based on user preferences | LLM |
+| **🏝️ Place Discovery** | Recommends tourist destinations with descriptions | LLM |
+| **🧾 Smart Itinerary** | Generates day-wise travel plans | LLM |
+| **💸 Budget Estimation** | Provides approximate trip cost breakdown | AI Logic |
+| **🖼️ Image Integration** | Fetches destination visuals dynamically | Unsplash API |
+| **🗺️ Map Navigation** | Direct Google Maps access for locations | Google Maps |
 
 ---
 
-### 🤖 AI-Based Recommendations
+## 🧠 AI System Overview
 
-#### 📍 Step 1: State Recommendation
-- AI suggests **top 3–5 states** based on user input  
+The AI engine handles:
 
-#### 🏝️ Step 2: Place Recommendation
-- Based on selected state & preferences  
-- AI suggests places with descriptions  
-
----
-
-### 🗺️ Place Details Page
-
-Each selected place includes:
-- 🖼️ Image gallery (via API e.g. Unsplash)  
-- 📝 AI-generated description  
-- 💸 Estimated travel cost  
-- 📅 Day-wise itinerary  
-- 📍 Google Maps integration  
-
----
-
-### 📌 Google Maps Integration
-- Open locations directly in Google Maps  
-- Format: 
-<h1 align="center">🌍 AI Travel Recommendation System</h1>
-
-<p align="center">
-  <b>Plan smarter trips with AI-powered recommendations</b>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-</p>
-
----
-
-## 📌 Project Overview
-
-This project is an **AI-powered travel recommendation web application** that helps users plan trips based on their **budget, preferences, and group details**.
-
-The system leverages AI to:
-- Recommend suitable **states**
-- Suggest **tourist destinations**
-- Generate **travel insights and itineraries**
-
----
-
-## 🎯 Core Features
-
-### 🔐 User Authentication
-- Signup & Login system  
-- Session-based authentication  
-- Secure password handling  
-
----
-
-### 📝 Travel Input Form
-Users provide:
-- 💰 Budget (₹)  
-- 👥 Number of travelers  
-- 🎂 Age group  
-- 🧭 Travel type:
-  - Nature  
-  - Adventure  
-  - Historical  
-  - Spiritual  
-- 📅 Duration (days)  
-
----
-
-### 🤖 AI-Based Recommendations
-
-#### 📍 Step 1: State Recommendation
-- AI suggests **top 3–5 states** based on user input  
-
-#### 🏝️ Step 2: Place Recommendation
-- Based on selected state & preferences  
-- AI suggests places with descriptions  
-
----
-
-### 🗺️ Place Details Page
-
-Each selected place includes:
-- 🖼️ Image gallery (via API e.g. Unsplash)  
-- 📝 AI-generated description  
-- 💸 Estimated travel cost  
-- 📅 Day-wise itinerary  
-- 📍 Google Maps integration  
-
----
-
-### 📌 Google Maps Integration
-- Open locations directly in Google Maps  
-- Format:
-- <h1 align="center">🌍 AI Travel Recommendation System</h1>
-
-<p align="center">
-  <b>Plan smarter trips with AI-powered recommendations</b>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/github/stars/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/forks/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-  <img src="https://img.shields.io/github/issues/SAQIB-dev7447/Travel_Reco?style=for-the-badge" />
-</p>
-
----
-
-## 📌 Project Overview
-
-This project is an **AI-powered travel recommendation web application** that helps users plan trips based on their **budget, preferences, and group details**.
-
-The system leverages AI to:
-- Recommend suitable **states**
-- Suggest **tourist destinations**
-- Generate **travel insights and itineraries**
-
----
-
-## 🎯 Core Features
-
-### 🔐 User Authentication
-- Signup & Login system  
-- Session-based authentication  
-- Secure password handling  
-
----
-
-### 📝 Travel Input Form
-Users provide:
-- 💰 Budget (₹)  
-- 👥 Number of travelers  
-- 🎂 Age group  
-- 🧭 Travel type:
-  - Nature  
-  - Adventure  
-  - Historical  
-  - Spiritual  
-- 📅 Duration (days)  
-
----
-
-### 🤖 AI-Based Recommendations
-
-#### 📍 Step 1: State Recommendation
-- AI suggests **top 3–5 states** based on user input  
-
-#### 🏝️ Step 2: Place Recommendation
-- Based on selected state & preferences  
-- AI suggests places with descriptions  
-
----
-
-### 🗺️ Place Details Page
-
-Each selected place includes:
-- 🖼️ Image gallery (via API e.g. Unsplash)  
-- 📝 AI-generated description  
-- 💸 Estimated travel cost  
-- 📅 Day-wise itinerary  
-- 📍 Google Maps integration  
-
----
-
-### 📌 Google Maps Integration
-- Open locations directly in Google Maps  
-- Format:
-    https://www.google.com/maps/search/%7Bplace_name%7D
-
-  
----
-
-### 📱 Responsive UI
-- Fully responsive (mobile + desktop)  
-- Clean and consistent design  
-- Built using Bootstrap / Flexbox / Grid  
-
----
-
-## 🧠 AI Integration
-
-### ⚡ AI Responsibilities
-- State recommendations  
-- Place recommendations  
-- Description generation  
-- Itinerary generation  
+- Context-based travel recommendations  
+- Natural language description generation  
+- Itinerary creation  
 - Budget estimation  
 
----
+### Sample Prompt
 
-### 🧾 Sample Prompt (State Recommendation)
+
+Travel_Reco is an intelligent travel planning platform that uses AI to
+recommend destinations, generate itineraries, and provide personalized
+travel insights based on user preferences like budget, group size, and
+travel style.
+
+It simplifies trip planning by turning complex decisions into smart,
+AI-driven suggestions.
+
 User Details:
 Budget: {budget}
 Members: {members}
@@ -249,109 +55,71 @@ Duration: {days}
 
 Suggest 3 best Indian states with reasons.
 
----
+------------------------------------------------------------------------
 
-## 🏗️ Tech Stack
+## ✨ Core Capabilities
+Travel_Reco transforms user input into actionable travel plans through intelligent AI workflows:
 
-### 🎨 Frontend
-- HTML5  
-- CSS3  
-- Bootstrap  
+| Feature | Description | Powered By |
+| :--- | :--- | :--- |
+| **📍 State Recommendation** | Suggests best Indian states based on user preferences | LLM |
+| **🏝️ Place Discovery** | Recommends tourist destinations with descriptions | LLM |
+| **🧾 Smart Itinerary** | Generates day-wise travel plans | LLM |
+| **💸 Budget Estimation** | Provides approximate trip cost breakdown | AI Logic |
+| **🖼️ Image Integration** | Fetches destination visuals dynamically | Unsplash API |
+| **🗺️ Map Navigation** | Direct Google Maps access for locations | Google Maps |
 
-### ⚙️ Backend
-- Python Flask  
 
-### 🧠 AI
-- Grok API (LLM)  
+------------------------------------------------------------------------
 
-### 🗄️ Database
-- SQLite  
+Tech Stack
 
-### 🖼️ Images
-- Unsplash API  
+## 🛠️ Technology Stack
 
----
+| Layer        | Technology              | Description |
+|-------------|------------------------|-------------|
+| **Backend**  | Python, Flask          | Handles server logic, routing, and API integration |
+| **Frontend** | HTML5, CSS3, Bootstrap | Builds responsive and user-friendly interface |
+| **AI Engine**| LLM APIs (Grok/Gemini) | Generates recommendations, itineraries, and insights |
+| **Database** | SQLite                 | Stores user data and session information |
+| **Images**   | Unsplash API           | Fetches dynamic travel images |
+| **Maps**     | Google Maps            | Provides location navigation and map integration |
 
-## 📁 Project Structure
-travel_ai_app/
-│
-├── app.py
-├── models.py
-├── database.db
-│
-├── templates/
-│ ├── login.html
-│ ├── signup.html
-│ ├── dashboard.html
-│ ├── recommendations.html
-│ ├── place.html
-│
-├── static/
-│ ├── css/
-│ ├── js/
-│ ├── images/
-│
-├── utils/
-│ ├── ai.py
-│ ├── image_api.py
-│
-└── README.md
+------------------------------------------------------------------------
+
+## Prerequisites
+
+- Python 3.x  
+- API Keys (for AI & Images)  
+
+-----------------------------------------------------------------------
+
+Setup
 
 ---
 
-## 🔄 Application Flow
+### Installation
 
-1. User signs up / logs in  
-2. User enters travel details  
-3. AI recommends states  
-4. User selects a state  
-5. AI recommends places  
-6. User selects a place  
-7. System displays:
-   - Images  
-   - Description  
-   - Budget estimate  
-   - Itinerary  
-8. User clicks **"View on Map"**  
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SAQIB-dev7447/Travel_Reco.git
+   cd Travel_Reco
 
----
+2.**Setup Virtual Environment**
 
-## ⚙️ Backend Routes (Flask)
+python -m venv venv
+.\venv\Scripts\activate
+pip install -r requirements.txt
 
-- `/` → Login Page  
-- `/signup` → Register User  
-- `/dashboard` → Input Form  
-- `/recommend` → Show states  
-- `/places/<state>` → Show places  
-- `/place/<place>` → Place details  
+3.**Configure Environment Variables**
+Create a .env file:
 
----
+GROQ_API_KEY=your_key
+GEMINI_API_KEY=your_key (optional)
+UNSPLASH_API_KEY=your_key
 
-## 📊 Future Enhancements
+4.**Run the Application**
 
-- 💾 Save trips feature  
-- 💬 Chat-based travel assistant  
-- 🏨 Hotel & transport suggestions  
-- 📡 Real-time pricing APIs  
-- 🛒 Booking integration  
+python app.py
 
----
-
-## 🎯 Goal
-
-To build a **smart AI-driven travel planning assistant** that simplifies decision-making and enhances user experience.
-
----
-
-## 💡 Notes
-
-- Keep UI clean and intuitive  
-- Keep AI responses short & structured  
-- Avoid overcomplicating backend  
-- Ensure responsiveness across devices  
-
----
-
-## ⭐ Show Your Support
-
-If you like this project, give it a ⭐ on GitHub!
+Open: http://127.0.0.1:5000
