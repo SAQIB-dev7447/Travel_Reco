@@ -116,9 +116,9 @@ Travel_Reco/
 
 - Python 3.x  
 - API Keys
-     -Groq API key
-     -Unplash Access key
-     -Unplash Secret key
+     -Groq API key<br>
+     -Unplash Access key<br>
+     -Unplash Secret key<br>
      -Secret key  
 
 -----------------------------------------------------------------------
